@@ -98,6 +98,10 @@ public class JCAConfigGen {
 		if(EPICS_CA_MAX_ARRAY_BYTES == null) EPICS_CA_MAX_ARRAY_BYTES = "30.0";
 		out.println("  <max_array_bytes>" + EPICS_CA_MAX_ARRAY_BYTES + "</max_array_bytes>");
 		
+		String EPICS_CA_MAX_SEARCH_INTERVAL = System.getenv("EPICS_CA_MAX_SEARCH_PERIOD");
+		if(EPICS_CA_MAX_SEARCH_INTERVAL == null) EPICS_CA_MAX_SEARCH_INTERVAL = "300";
+		out.println("  <max_search_interval>" + EPICS_CA_MAX_SEARCH_INTERVAL + "</max_search_interval>");
+		
 		String dispatcher = props.getProperty("org.epics.archiverappliance.engine.epics.JCAConfigGen.dispatcher", "gov.aps.jca.event.QueuedEventDispatcher");
 		out.println("  <event_dispatcher class=\"" + dispatcher + "\"/>");
 		out.println("</context>");
